@@ -22,4 +22,4 @@ from places.views import render_home_page
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', render_home_page),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
