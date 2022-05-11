@@ -17,7 +17,7 @@ def render_home_page(request):
                     "properties": {
                         "title": place.title,
                         "placeId": place.id,
-                        "detailsUrl": ''
+                        "detailsUrl": f'/places/{place.id}'
                     }
                 }
                 for place in Place.objects.all()
