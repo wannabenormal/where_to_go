@@ -13,7 +13,7 @@ class Place(models.Model):
 
 
 class Image(models.Model):
-    order = models.IntegerField(default=1, verbose_name='Порядок')
+    order = models.PositiveIntegerField(default=1, verbose_name='Порядок')
     image = models.ImageField(verbose_name='Изображение')
     place = models.ForeignKey(
         Place,
@@ -21,6 +21,9 @@ class Image(models.Model):
         related_name='images',
         verbose_name='Место'
     )
+
+    class Meta:
+        ordering = ['order']
 
     def __str__(self):
         return f'{self.order} {self.place.title}'

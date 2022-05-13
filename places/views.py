@@ -35,7 +35,7 @@ def get_detail_place(request, place_id):
             "title": place.title,
             "imgs": [
                 image.image.url
-                for image in place.images.all().order_by('order')
+                for image in place.images.all()
             ],
             "description_short": place.description_short,
             "description_long": place.description_long,
