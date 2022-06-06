@@ -8,8 +8,11 @@ class Place(models.Model):
         unique=True,
         verbose_name='Название'
     )
-    description_short = models.TextField(verbose_name='Краткое описание')
-    description_long = HTMLField(verbose_name='Описание')
+    description_short = models.TextField(
+        verbose_name='Краткое описание',
+        blank=True
+    )
+    description_long = HTMLField(verbose_name='Описание', blank=True)
     longitude = models.FloatField(verbose_name='Долгота')
     latitude = models.FloatField(verbose_name='Широта')
 
