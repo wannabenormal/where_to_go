@@ -20,10 +20,12 @@ class Command(BaseCommand):
 
         place, created = Place.objects.update_or_create(
             title=place_response['title'],
-            description_short=place_response['description_short'],
-            description_long=place_response['description_long'],
-            longitude=place_response['coordinates']['lng'],
-            latitude=place_response['coordinates']['lat']
+            defaults={
+                'description_short': place_response['description_short'],
+                'description_long': place_response['description_long'],
+                'longitude': place_response['coordinates']['lng'],
+                'latitude': place_response['coordinates']['lat']
+            }
         )
 
         if not created:
